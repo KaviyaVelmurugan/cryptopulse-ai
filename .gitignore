@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# JavaScript
+node_modules/
+.next/
+dist/
+coverage/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Data and model artefacts not approved for redistribution
+data/raw/
+data/private/
+models/
+artifacts/
+
+# Notebook and editor state
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Operating systems
+.DS_Store
+Thumbs.db
+
+# Local reports and temporary files
+tmp/
+*.log
