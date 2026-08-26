@@ -61,14 +61,15 @@ Each phase begins with an explanation of its purpose, technology choices, output
 
 ## Phase 6 - Financial-language model comparison
 
-**Status:** Planned
+**Status:** Complete
 
 - Add a suitable licensed financial-language model
 - Evaluate it against VADER
 - Measure class performance and calibration
 - Version preprocessing and inference outputs
 
-**Exit criterion:** Model selection is based on evidence rather than complexity.
+**Exit criterion:** The comparison pipeline is reproducible and revision-pinned. Final model
+selection remains deliberately open until a sufficiently large real, human-labelled test set exists.
 
 ## Phase 7 - Asset-specific sentiment and entity resolution
 

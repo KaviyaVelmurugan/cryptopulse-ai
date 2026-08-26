@@ -10,6 +10,7 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from importlib.metadata import version
 from pathlib import Path
+from typing import Protocol
 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
@@ -30,6 +31,10 @@ VADER_MODEL_VERSION = version("vaderSentiment")
 NEGATIVE_THRESHOLD = -0.05
 POSITIVE_THRESHOLD = 0.05
 LABELS = tuple(SentimentLabel)
+
+
+class LabelledPrediction(Protocol):
+    predicted_label: SentimentLabel
 
 
 @dataclass(frozen=True, slots=True)
@@ -106,7 +111,7 @@ class VaderBaseline:
 
 def evaluate(
     annotations: list[HumanAnnotation],
-    predictions: dict[tuple[str, AssetId], VaderBaselineScore],
+    predictions: dict[tuple[str, AssetId], LabelledPrediction],
 ) -> EvaluationMetrics:
     if not annotations:
         return EvaluationMetrics(

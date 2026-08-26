@@ -80,11 +80,26 @@ python -m cryptopulse.sentiment
 
 See the [VADER baseline](docs/VADER_BASELINE.md) and [annotation guidelines](docs/ANNOTATION_GUIDELINES.md).
 
+## Financial-language model comparison
+
+Phase 6 adds a revision-pinned, optional FinBERT adapter and compares it with VADER using the
+same annotations, deduplication policy, and test split. It also measures multiclass Brier score
+and expected calibration error. The synthetic sample validates the pipeline but cannot establish
+which model is better.
+
+```powershell
+python -m pip install -e ".[ml]"
+$env:PYTHONPATH="src"
+python -m cryptopulse.finbert
+```
+
+See the [FinBERT comparison methodology and licence boundary](docs/FINBERT_COMPARISON.md).
+
 ## Current status
 
-**Phase 5 - VADER baseline and annotation: complete**
+**Phase 6 - Financial-language model comparison: complete**
 
-Implementation continues in Phase 6 with a financial-language model and evidence-based comparison against VADER.
+Implementation continues in Phase 7 with asset-specific sentiment and entity resolution.
 
 ## License
 

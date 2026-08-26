@@ -71,3 +71,12 @@
 **Decision:** The application will not access exchange accounts or place orders.
 
 **Reason:** Execution introduces materially greater financial, security, operational, and regulatory risk than a research dashboard.
+
+## D-013: Pin FinBERT and keep it optional
+
+**Decision:** Compare VADER with `ProsusAI/finbert` at commit
+`4556d13015211d73dccd3fdd39d39232506f3e43`, loaded only through the optional ML dependency group.
+
+**Reason:** Revision pinning makes experiments reproducible. Optional dependencies keep the core
+validation pipeline lightweight. The upstream repository does not declare a model licence, so the
+weights are not redistributed and production rights must be confirmed separately.

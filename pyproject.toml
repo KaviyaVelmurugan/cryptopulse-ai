@@ -14,9 +14,11 @@ dependencies = ["vaderSentiment>=3.3.2,<4"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.6"]
+ml = ["transformers>=4.44,<6", "torch>=2.2,<3"]
 
 [project.scripts]
 cryptopulse-validate = "cryptopulse.validation:main"
+cryptopulse-finbert = "cryptopulse.finbert:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
