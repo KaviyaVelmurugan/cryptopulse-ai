@@ -48,11 +48,22 @@ Phase 3 provides a NewsAPI adapter for permitted news metadata and a public Coin
 
 See the [connector setup, provenance, and limitations](docs/DATA_CONNECTORS.md). Copy `.env.example` to `.env` only when you are ready to test NewsAPI with your own development key.
 
+## Data quality and deduplication
+
+Phase 4 creates model-ready text without overwriting raw observations, assigns visible quality flags, and groups exact or near-duplicate stories using documented lexical thresholds. The generated reports show every grouping decision.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.preprocessing
+```
+
+See [preprocessing and quality design](docs/PREPROCESSING_AND_QUALITY.md).
+
 ## Current status
 
-**Phase 3 - News and market-data connectors: complete**
+**Phase 4 - Cleaning and deduplication: complete**
 
-Implementation continues in Phase 4 with text cleaning, data-quality reporting, and near-duplicate detection.
+Implementation continues in Phase 5 with the VADER baseline, annotation guidelines, and sentiment evaluation.
 
 ## License
 

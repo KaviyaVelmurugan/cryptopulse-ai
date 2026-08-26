@@ -1,0 +1,7 @@
+article_id,detected_language,language_confidence,headline_length,summary_length,quality_status,quality_flags,duplicate_group_id,preprocessing_version
+news_001,en,1.0000,48,106,pass,,dup_35e8a45b39dd919e6cf6,1.0.0
+news_002,en,1.0000,49,87,pass,,dup_35e8a45b39dd919e6cf6,1.0.0
+news_003,en,1.0000,44,132,pass,,dup_60499e540b98106778ee,1.0.0
+news_004,en,1.0000,52,102,pass,,dup_e85ddbc49293c38b72e9,1.0.0
+news_005,en,0.9605,46,99,pass,,dup_d00dce0b112ac6f9c2bd,1.0.0
+news_006,en,1.0000,53,114,pass,,dup_c9fa0b23fe75795095e0,1.0.0

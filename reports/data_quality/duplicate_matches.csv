@@ -1,0 +1,2 @@
+left_article_id,right_article_id,match_type,sequence_similarity,token_jaccard,hours_apart,explanation
+news_001,news_002,near_duplicate,0.514,0.4167,0.0333,Shared asset within 0.03h; sequence similarity 0.514 >= 0.440 and token Jaccard 0.417 >= 0.200.

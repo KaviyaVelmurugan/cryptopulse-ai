@@ -39,7 +39,7 @@ Each phase begins with an explanation of its purpose, technology choices, output
 
 ## Phase 4 - Cleaning and deduplication
 
-**Status:** Planned
+**Status:** Complete
 
 - Normalise text and timestamps
 - Detect language and remove provider artefacts

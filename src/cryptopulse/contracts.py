@@ -59,6 +59,18 @@ class NewsArticle:
 
 
 @dataclass(frozen=True, slots=True)
+class CleanedNewsArticle:
+    article_id: str
+    cleaned_headline: str
+    cleaned_summary: str
+    model_text: str
+    detected_language: str
+    language_confidence: float
+    quality_flags: tuple[str, ...]
+    preprocessing_version: str
+
+
+@dataclass(frozen=True, slots=True)
 class MarketCandle:
     candle_id: str
     asset_id: AssetId
