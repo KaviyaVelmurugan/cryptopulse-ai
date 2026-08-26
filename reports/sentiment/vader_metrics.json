@@ -1,0 +1,162 @@
+{
+  "evaluations": {
+    "all_records": {
+      "accuracy": 0.7143,
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 1
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 3
+        }
+      },
+      "macro_f1": 0.6746,
+      "per_class": {
+        "negative": {
+          "f1": 0.6667,
+          "false_negative": 1,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "support": 2,
+          "true_positive": 1
+        },
+        "neutral": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "support": 2,
+          "true_positive": 1
+        },
+        "positive": {
+          "f1": 0.8571,
+          "false_negative": 0,
+          "false_positive": 1,
+          "precision": 0.75,
+          "recall": 1.0,
+          "support": 3,
+          "true_positive": 3
+        }
+      },
+      "sample_count": 7
+    },
+    "deduplicated_records": {
+      "accuracy": 0.6667,
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 1
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 2
+        }
+      },
+      "macro_f1": 0.6556,
+      "per_class": {
+        "negative": {
+          "f1": 0.6667,
+          "false_negative": 1,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "support": 2,
+          "true_positive": 1
+        },
+        "neutral": {
+          "f1": 0.5,
+          "false_negative": 1,
+          "false_positive": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "support": 2,
+          "true_positive": 1
+        },
+        "positive": {
+          "f1": 0.8,
+          "false_negative": 0,
+          "false_positive": 1,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "support": 2,
+          "true_positive": 2
+        }
+      },
+      "sample_count": 6
+    },
+    "locked_test_split": {
+      "accuracy": 1.0,
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 0,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 0
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 1
+        }
+      },
+      "macro_f1": 0.6667,
+      "per_class": {
+        "negative": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1,
+          "true_positive": 1
+        },
+        "neutral": {
+          "f1": 0.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 0,
+          "true_positive": 0
+        },
+        "positive": {
+          "f1": 1.0,
+          "false_negative": 0,
+          "false_positive": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1,
+          "true_positive": 1
+        }
+      },
+      "sample_count": 2
+    }
+  },
+  "thresholds": {
+    "negative_max": -0.05,
+    "positive_min": 0.05
+  },
+  "warning": "Synthetic sample metrics validate the pipeline; they are not performance claims."
+}

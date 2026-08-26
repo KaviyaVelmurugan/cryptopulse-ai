@@ -30,6 +30,16 @@ CryptoPulse AI will not claim that sentiment causes price changes, guarantees re
 
 See the [project requirements](docs/PROJECT_REQUIREMENTS.md), [development roadmap](docs/ROADMAP.md), [decision log](docs/DECISIONS.md), and [responsible-use policy](docs/RESPONSIBLE_USE.md).
 
+## Local Python setup
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e .
+```
+
+The virtual environment and installed packages are ignored by Git.
+
 ## Validate the Phase 2 sample
 
 The repository contains a small, entirely synthetic dataset for testing the contracts. From the repository root:
@@ -59,11 +69,22 @@ python -m cryptopulse.preprocessing
 
 See [preprocessing and quality design](docs/PREPROCESSING_AND_QUALITY.md).
 
+## VADER sentiment baseline
+
+Phase 5 evaluates a versioned VADER baseline against target-specific annotations. Reports include class-wise metrics, confusion matrices, deduplicated evaluation, the locked test split, and individual error examples. Synthetic sample metrics verify the pipeline and are not performance claims.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.sentiment
+```
+
+See the [VADER baseline](docs/VADER_BASELINE.md) and [annotation guidelines](docs/ANNOTATION_GUIDELINES.md).
+
 ## Current status
 
-**Phase 4 - Cleaning and deduplication: complete**
+**Phase 5 - VADER baseline and annotation: complete**
 
-Implementation continues in Phase 5 with the VADER baseline, annotation guidelines, and sentiment evaluation.
+Implementation continues in Phase 6 with a financial-language model and evidence-based comparison against VADER.
 
 ## License
 

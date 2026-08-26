@@ -1,0 +1,8 @@
+prediction_id,article_id,target_asset_id,negative_proportion,neutral_proportion,positive_proportion,compound_score,predicted_label,model_name,model_version,preprocessing_version,predicted_at
+vader_ffe5815045e13a220b39,news_001,bitcoin,0.0000,0.7760,0.2240,0.6369,positive,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_fe67835277725b3f4dd6,news_002,bitcoin,0.0000,0.8170,0.1830,0.5859,positive,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_47671479f23bb34522d4,news_003,ethereum,0.1910,0.7220,0.0870,-0.2263,negative,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_822069640c357d09623b,news_004,bitcoin,0.0000,0.9220,0.0780,0.1779,positive,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_e5c94cf388159cf217e5,news_005,ethereum,0.0000,0.8530,0.1470,0.4767,positive,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_9af962a9bf0ee5b4057c,news_006,bitcoin,0.0900,0.8240,0.0860,-0.0258,neutral,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z
+vader_42e026fd0f32c90b644f,news_006,ethereum,0.0900,0.8240,0.0860,-0.0258,neutral,vaderSentiment,3.3.2,1.0.0,2026-01-06T09:26:00Z

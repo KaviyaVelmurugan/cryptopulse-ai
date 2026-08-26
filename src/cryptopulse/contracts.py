@@ -123,6 +123,24 @@ class SentimentPrediction:
 
 
 @dataclass(frozen=True, slots=True)
+class VaderBaselineScore:
+    prediction_id: str
+    article_id: str
+    target_asset_id: AssetId
+    negative_proportion: float
+    neutral_proportion: float
+    positive_proportion: float
+    compound_score: float
+    predicted_label: SentimentLabel
+    evidence_text: str
+    model_name: str
+    model_version: str
+    preprocessing_version: str
+    predicted_at: datetime
+    schema_version: str = SCHEMA_VERSION
+
+
+@dataclass(frozen=True, slots=True)
 class SentimentAggregate:
     aggregate_id: str
     asset_id: AssetId

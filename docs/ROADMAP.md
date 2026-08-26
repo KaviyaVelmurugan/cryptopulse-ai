@@ -50,7 +50,7 @@ Each phase begins with an explanation of its purpose, technology choices, output
 
 ## Phase 5 - Baseline sentiment and annotation
 
-**Status:** Planned
+**Status:** Complete
 
 - Implement VADER baseline
 - Define annotation guidelines
