@@ -42,11 +42,17 @@ python -m unittest discover -s tests -v
 
 See the [data dictionary](docs/DATA_DICTIONARY.md) and [sample-data policy](data/README.md).
 
+## External connectors
+
+Phase 3 provides a NewsAPI adapter for permitted news metadata and a public Coinbase Exchange adapter for exchange-specific BTC/USD and ETH/USD candles. Automated tests use offline fake responses and never consume live API quota.
+
+See the [connector setup, provenance, and limitations](docs/DATA_CONNECTORS.md). Copy `.env.example` to `.env` only when you are ready to test NewsAPI with your own development key.
+
 ## Current status
 
-**Phase 2 - Repository foundation and data contracts: complete**
+**Phase 3 - News and market-data connectors: complete**
 
-Implementation continues in Phase 3 with approved news and OHLCV market-data connectors.
+Implementation continues in Phase 4 with text cleaning, data-quality reporting, and near-duplicate detection.
 
 ## License
 

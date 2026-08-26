@@ -28,7 +28,7 @@ Each phase begins with an explanation of its purpose, technology choices, output
 
 ## Phase 3 - News and market-data connectors
 
-**Status:** Planned
+**Status:** Complete
 
 - Implement provider interfaces
 - Add one approved news source and one OHLCV source
