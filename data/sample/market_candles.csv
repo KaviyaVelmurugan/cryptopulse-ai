@@ -1,0 +1,9 @@
+candle_id,asset_id,symbol,quote_currency,interval,open_time,close_time,open_price,high_price,low_price,close_price,volume,provider,retrieved_at,is_synthetic,schema_version
+candle_btc_0800,bitcoin,BTC,USD,1h,2026-01-05T08:00:00Z,2026-01-05T09:00:00Z,100000.00,100700.00,99750.00,100450.00,1250.50,synthetic_exchange,2026-01-05T09:01:00Z,true,1.0.0
+candle_btc_0900,bitcoin,BTC,USD,1h,2026-01-05T09:00:00Z,2026-01-05T10:00:00Z,100450.00,100900.00,100100.00,100620.00,1180.25,synthetic_exchange,2026-01-05T10:01:00Z,true,1.0.0
+candle_btc_1000,bitcoin,BTC,USD,1h,2026-01-05T10:00:00Z,2026-01-05T11:00:00Z,100620.00,100800.00,99880.00,100050.00,1435.75,synthetic_exchange,2026-01-05T11:01:00Z,true,1.0.0
+candle_btc_1100,bitcoin,BTC,USD,1h,2026-01-05T11:00:00Z,2026-01-05T12:00:00Z,100050.00,100500.00,99900.00,100320.00,980.10,synthetic_exchange,2026-01-05T12:01:00Z,true,1.0.0
+candle_eth_0800,ethereum,ETH,USD,1h,2026-01-05T08:00:00Z,2026-01-05T09:00:00Z,4000.00,4020.00,3975.00,4010.00,8420.50,synthetic_exchange,2026-01-05T09:01:00Z,true,1.0.0
+candle_eth_0900,ethereum,ETH,USD,1h,2026-01-05T09:00:00Z,2026-01-05T10:00:00Z,4010.00,4015.00,3920.00,3940.00,11230.25,synthetic_exchange,2026-01-05T10:01:00Z,true,1.0.0
+candle_eth_1000,ethereum,ETH,USD,1h,2026-01-05T10:00:00Z,2026-01-05T11:00:00Z,3940.00,3970.00,3905.00,3955.00,9350.75,synthetic_exchange,2026-01-05T11:01:00Z,true,1.0.0
+candle_eth_1100,ethereum,ETH,USD,1h,2026-01-05T11:00:00Z,2026-01-05T12:00:00Z,3955.00,4035.00,3945.00,4025.00,10780.10,synthetic_exchange,2026-01-05T12:01:00Z,true,1.0.0

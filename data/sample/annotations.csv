@@ -1,0 +1,8 @@
+annotation_id,article_id,target_asset_id,sentiment_label,event_label,evidence_text,annotator_id,annotation_round,dataset_split,created_at,schema_version
+ann_001,news_001,bitcoin,positive,adoption_partnership,successful Bitcoin settlement pilot,synthetic_annotator_01,1,development,2026-01-06T09:00:00Z,1.0.0
+ann_002,news_002,bitcoin,positive,adoption_partnership,successful BTC settlements,synthetic_annotator_01,1,development,2026-01-06T09:05:00Z,1.0.0
+ann_003,news_003,ethereum,negative,security_incident,security incident caused developers to delay,synthetic_annotator_02,1,test,2026-01-06T09:10:00Z,1.0.0
+ann_004,news_004,bitcoin,neutral,regulation_legal,announced a hearing covering custody rules,synthetic_annotator_02,1,validation,2026-01-06T09:15:00Z,1.0.0
+ann_005,news_005,ethereum,positive,protocol_technical,improved Ethereum test performance,synthetic_annotator_01,1,test,2026-01-06T09:20:00Z,1.0.0
+ann_006,news_006,bitcoin,neutral,market_commentary,stable Bitcoin liquidity,synthetic_annotator_02,1,development,2026-01-06T09:25:00Z,1.0.0
+ann_007,news_006,ethereum,negative,market_commentary,Ethereum liquidity weakened,synthetic_annotator_02,1,development,2026-01-06T09:26:00Z,1.0.0

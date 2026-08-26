@@ -30,11 +30,23 @@ CryptoPulse AI will not claim that sentiment causes price changes, guarantees re
 
 See the [project requirements](docs/PROJECT_REQUIREMENTS.md), [development roadmap](docs/ROADMAP.md), [decision log](docs/DECISIONS.md), and [responsible-use policy](docs/RESPONSIBLE_USE.md).
 
+## Validate the Phase 2 sample
+
+The repository contains a small, entirely synthetic dataset for testing the contracts. From the repository root:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.validation data/sample
+python -m unittest discover -s tests -v
+```
+
+See the [data dictionary](docs/DATA_DICTIONARY.md) and [sample-data policy](data/README.md).
+
 ## Current status
 
-**Phase 1 - Product definition: complete**
+**Phase 2 - Repository foundation and data contracts: complete**
 
-Implementation begins in Phase 2 with the repository structure, data contracts, and deterministic sample data.
+Implementation continues in Phase 3 with approved news and OHLCV market-data connectors.
 
 ## License
 
