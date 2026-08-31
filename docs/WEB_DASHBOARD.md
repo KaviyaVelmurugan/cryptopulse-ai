@@ -82,4 +82,5 @@ smaller screens without removing research warnings or evidence details.
 - Authentication, hosted caching, PostgreSQL, and production observability remain future work.
 
 These limitations are visible product boundaries, not hidden defects. Phase 13 adds downloadable
-research outputs and responsibly worded informational alerts.
+research outputs and responsibly worded informational alerts; see the
+[reports and alerts guide](REPORTS_AND_ALERTS.md).

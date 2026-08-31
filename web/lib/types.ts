@@ -38,3 +38,18 @@ export interface ResearchSummary {
   correlations_are_descriptive_only: boolean;
   correlations: Record<string, { pearson: number | null; spearman: number | null }>;
 }
+
+export interface AlertRule {
+  sentimentMagnitude: number;
+  minimumCoverage: number;
+  eventCategory: string;
+}
+
+export interface AlertFinding {
+  id: string;
+  asset: Asset;
+  observedAt: string;
+  title: string;
+  explanation: string;
+  severity: "notice" | "attention";
+}

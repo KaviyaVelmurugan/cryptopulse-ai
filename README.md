@@ -180,11 +180,19 @@ npm run dev
 Open `http://localhost:3000`. The dashboard uses its committed synthetic demonstration data by
 default. To connect the Phase 11 API, follow the [web dashboard guide](docs/WEB_DASHBOARD.md).
 
+## Reports and informational alerts
+
+Phase 13 adds a permitted derived-index CSV download, a print-ready research report that can be
+saved as PDF, and locally configurable research alerts. Alert rules are stored in the browser and
+describe observed evidence conditions; they are not price forecasts or trading recommendations.
+
+See the [reports and alerts guide](docs/REPORTS_AND_ALERTS.md).
+
 ## Current status
 
-**Phase 12 - Interactive web dashboard: complete**
+**Phase 13 - Reports and informational alerts: complete**
 
-Implementation continues in Phase 13 with downloadable reports and informational alerts.
+Implementation continues in Phase 14 with MLOps, quality, security, and deployment controls.
 
 ## License
 

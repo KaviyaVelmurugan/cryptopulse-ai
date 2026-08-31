@@ -130,3 +130,22 @@ synthetic-demo mode unless a backend URL is configured.
 **Reason:** A polished interface must not make sparse or synthetic evidence appear production-ready.
 Separating these concepts lets a reviewer inspect why a score exists and understand what it cannot
 prove.
+
+## D-020: Keep v1 alerts local and informational
+
+**Decision:** Evaluate configurable sentiment, evidence-coverage, and event conditions in the
+browser. Store the rule locally, retain no personal contact details, and use observation language
+instead of trading language.
+
+**Reason:** This demonstrates a useful alert workflow without introducing notification delivery,
+exchange access, personalisation, or an implied recommendation. Server-side delivery and user
+accounts require a separate security and consent design.
+
+## D-021: Export only derived research data
+
+**Decision:** The dashboard CSV contains aggregate index fields and excludes article text. The PDF
+workflow uses the browser's standards-based print/save function.
+
+**Reason:** Derived outputs are sufficient for analysis and portfolio review while avoiding
+unnecessary redistribution of provider-controlled content. Browser printing keeps the v1 report
+portable without adding a server-side document service.

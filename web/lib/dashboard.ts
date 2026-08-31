@@ -1,4 +1,4 @@
-import type { IndexPoint } from "./types";
+import type { AlertFinding, AlertRule, EventPrediction, IndexPoint } from "./types";
 
 export const clamp = (value: number, minimum: number, maximum: number) =>
   Math.min(maximum, Math.max(minimum, value));
@@ -30,3 +30,36 @@ export const buildPath = (values: number[], width: number, height: number, paddi
     return `${index ? "L" : "M"}${x.toFixed(2)},${y.toFixed(2)}`;
   }).join(" ");
 };
+
+const csvCell = (value: string | number) => `"${String(value).replaceAll('"', '""')}"`;
+
+export const indicesToCsv = (points: IndexPoint[]) => {
+  const fields: (keyof IndexPoint)[] = [
+    "window_start", "window_end", "asset_id", "resolution", "sentiment_index",
+    "evidence_count", "independent_source_count", "evidence_coverage", "leading_event",
+    "aggregation_version",
+  ];
+  return [fields.map(csvCell).join(","), ...points.map((point) => fields.map((field) => csvCell(point[field])).join(","))].join("\n");
+};
+
+export const evaluateAlerts = (
+  points: IndexPoint[], events: EventPrediction[], rule: AlertRule,
+): AlertFinding[] => points.flatMap((point) => {
+  const sentiment = Number(point.sentiment_index);
+  const coverage = Number(point.evidence_coverage);
+  const matchingEvent = events.find((event) =>
+    event.target_asset_id === point.asset_id
+    && (!rule.eventCategory || event.primary_event_label === rule.eventCategory));
+  const magnitudeMet = Math.abs(sentiment) >= rule.sentimentMagnitude;
+  const coverageMet = coverage >= rule.minimumCoverage;
+  const eventMet = !rule.eventCategory || Boolean(matchingEvent);
+  if (!magnitudeMet || !coverageMet || !eventMet) return [];
+  return [{
+    id: `alert-${point.aggregate_id}-${rule.eventCategory || "any"}`,
+    asset: point.asset_id,
+    observedAt: point.window_end,
+    title: `${humanize(point.asset_id)} research signal observed`,
+    explanation: `Absolute sentiment ${Math.abs(sentiment).toFixed(3)} met ${rule.sentimentMagnitude.toFixed(2)} with ${Math.round(coverage * 100)}% evidence coverage${matchingEvent ? ` and ${humanize(matchingEvent.primary_event_label)} evidence` : ""}.`,
+    severity: Math.abs(sentiment) >= 0.5 ? "attention" : "notice",
+  } satisfies AlertFinding];
+});

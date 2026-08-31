@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { buildPath, formatUtcTime, humanize, latestEvidencePoint, sentimentTone } from "@/lib/dashboard";
+import { buildPath, evaluateAlerts, formatUtcTime, humanize, indicesToCsv, latestEvidencePoint, sentimentTone } from "@/lib/dashboard";
 import { demoEvents, demoIndices, demoResearch } from "@/lib/demo-data";
-import type { Asset, EventPrediction, IndexPoint, ResearchSummary, Resolution } from "@/lib/types";
+import type { AlertRule, Asset, EventPrediction, IndexPoint, ResearchSummary, Resolution } from "@/lib/types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -64,6 +64,7 @@ export default function Dashboard() {
   const [events, setEvents] = useState<EventPrediction[]>(demoEvents);
   const [research, setResearch] = useState<ResearchSummary>(demoResearch);
   const [source, setSource] = useState<"api" | "demo">("demo");
+  const [alertRule, setAlertRule] = useState<AlertRule>({ sentimentMagnitude: 0.3, minimumCoverage: 0.3, eventCategory: "" });
 
   useEffect(() => {
     if (!API_BASE) return;
@@ -87,18 +88,42 @@ export default function Dashboard() {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    const saved = window.localStorage.getItem("cryptopulse-alert-rule");
+    if (!saved) return;
+    let parsed: AlertRule;
+    try { parsed = JSON.parse(saved) as AlertRule; } catch { window.localStorage.removeItem("cryptopulse-alert-rule"); return; }
+    const frame = window.requestAnimationFrame(() => setAlertRule(parsed));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   const visiblePoints = useMemo(() => indices.filter((point) => point.asset_id === asset && point.resolution === resolution), [indices, asset, resolution]);
   const visibleEvents = useMemo(() => events.filter((event) => event.target_asset_id === asset).slice(0, 3), [events, asset]);
   const latest = latestEvidencePoint(visiblePoints);
   const sentiment = Number(latest?.sentiment_index ?? 0);
   const coverage = Number(latest?.evidence_coverage ?? 0);
   const evidence = Number(latest?.evidence_count ?? 0);
+  const alertFindings = useMemo(() => evaluateAlerts(indices, events, alertRule).slice(-5).reverse(), [indices, events, alertRule]);
+
+  const updateAlertRule = (next: AlertRule) => {
+    setAlertRule(next);
+    window.localStorage.setItem("cryptopulse-alert-rule", JSON.stringify(next));
+  };
+
+  const downloadCsv = () => {
+    const blob = new Blob([indicesToCsv(indices)], { type: "text/csv;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "cryptopulse-derived-sentiment-index.csv";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
 
   return (
     <main>
       <header className="topbar">
         <a href="#overview" className="brand" aria-label="CryptoPulse AI home"><span className="brand-mark">CP</span><span>CryptoPulse <b>AI</b></span></a>
-        <nav aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#drivers">Event drivers</a><a href="#research">Research</a><a href="#methodology">Methodology</a></nav>
+        <nav aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#drivers">Event drivers</a><a href="#research">Research</a><a href="#outputs">Reports & alerts</a></nav>
         <span className={`live-pill ${source}`}><i />{source === "api" ? "API connected" : "Synthetic demo"}</span>
       </header>
 
@@ -137,6 +162,24 @@ export default function Dashboard() {
         <div><p className="eyebrow">Chronological market research</p><h2>Evidence before conclusions.</h2><p>{research.warning}</p>
           <div className="sample-count"><strong>{research.sample_count}</strong><span>aligned observations<br /><b>30 required for inference</b></span></div></div>
         <div className="research-card"><span className="warning-icon">!</span><div><strong>Inference intentionally withheld</strong><p>Permutation tests, confidence intervals, and direction accuracy are suppressed because the minimum sample requirements are not met.</p><code>{research.inference_status}</code></div></div>
+      </section>
+
+      <section id="outputs" className="outputs-section">
+        <div className="section-title"><div><p className="eyebrow">Shareable, traceable outputs</p><h2>Reports and informational alerts</h2></div><p>Export permitted derived values or record a research condition—never a trading instruction.</p></div>
+        <div className="output-grid">
+          <article className="export-card"><span className="card-number">01</span><h3>Derived data export</h3><p>Download the versioned sentiment index without copyrighted article text.</p><button className="action-button" onClick={downloadCsv}>Download CSV</button></article>
+          <article className="export-card"><span className="card-number">02</span><h3>Research report</h3><p>Open your browser print dialog and choose “Save as PDF” for a concise interview-ready snapshot.</p><button className="action-button secondary" onClick={() => window.print()}>Print / Save PDF</button></article>
+        </div>
+        <div className="alert-panel">
+          <div className="alert-config"><p className="eyebrow">Local alert rule</p><h3>Choose the evidence conditions</h3><p>Saved only in this browser. No exchange or notification account is connected.</p>
+            <label>Minimum sentiment magnitude <strong>{alertRule.sentimentMagnitude.toFixed(2)}</strong><input type="range" min="0.1" max="0.8" step="0.05" value={alertRule.sentimentMagnitude} onChange={(event) => updateAlertRule({ ...alertRule, sentimentMagnitude: Number(event.target.value) })} /></label>
+            <label>Minimum evidence coverage <strong>{Math.round(alertRule.minimumCoverage * 100)}%</strong><input type="range" min="0" max="1" step="0.1" value={alertRule.minimumCoverage} onChange={(event) => updateAlertRule({ ...alertRule, minimumCoverage: Number(event.target.value) })} /></label>
+            <label>Required event category<select value={alertRule.eventCategory} onChange={(event) => updateAlertRule({ ...alertRule, eventCategory: event.target.value })}><option value="">Any category</option><option value="regulation_legal">Regulation / legal</option><option value="security_incident">Security incident</option><option value="adoption_partnership">Adoption / partnership</option><option value="protocol_technical">Protocol / technical</option><option value="market_commentary">Market commentary</option></select></label>
+          </div>
+          <div className="alert-history"><div className="alert-heading"><div><p className="eyebrow">Evaluation result</p><h3>{alertFindings.length} condition{alertFindings.length === 1 ? "" : "s"} met</h3></div><span>Informational only</span></div>
+            {alertFindings.length ? <ol>{alertFindings.map((finding) => <li key={finding.id} className={finding.severity}><i /><div><strong>{finding.title}</strong><p>{finding.explanation}</p><time>{new Date(finding.observedAt).toISOString().replace("T", " ").slice(0, 16)} UTC</time></div></li>)}</ol> : <div className="alert-empty">No observation currently meets every configured condition.</div>}
+          </div>
+        </div>
       </section>
 
       <section id="methodology" className="method-grid">

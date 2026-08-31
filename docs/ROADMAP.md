@@ -144,7 +144,7 @@ prevents overlap, exposes read-only API contracts, and reports freshness separat
 
 ## Phase 13 - Reports and alerts
 
-**Status:** Planned
+**Status:** Complete
 
 - Export permitted derived datasets to CSV
 - Generate research reports for PDF
