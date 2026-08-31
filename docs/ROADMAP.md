@@ -121,14 +121,15 @@ chronological, and insufficient samples cannot produce inferential or causal cla
 
 ## Phase 11 - Backend, database, and scheduling
 
-**Status:** Planned
+**Status:** Complete
 
 - Add FastAPI service boundaries
 - Add PostgreSQL or a suitable development database
 - Schedule ingestion and processing
 - Implement migrations, health checks, logs, and freshness metrics
 
-**Exit criterion:** The pipeline operates repeatedly rather than only inside a notebook.
+**Exit criterion:** The pipeline runs through one versioned command, records operational state,
+prevents overlap, exposes read-only API contracts, and reports freshness separately from health.
 
 ## Phase 12 - Web dashboard
 

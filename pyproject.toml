@@ -15,6 +15,7 @@ dependencies = ["vaderSentiment>=3.3.2,<4"]
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 ml = ["transformers>=4.44,<6", "torch>=2.2,<3"]
+api = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1"]
 
 [project.scripts]
 cryptopulse-validate = "cryptopulse.validation:main"
@@ -23,9 +24,15 @@ cryptopulse-entities = "cryptopulse.entity_resolution:main"
 cryptopulse-events = "cryptopulse.events:main"
 cryptopulse-index = "cryptopulse.indexing:main"
 cryptopulse-research = "cryptopulse.research:main"
+cryptopulse-pipeline = "cryptopulse.operations:main"
+cryptopulse-scheduler = "cryptopulse.scheduler:main"
+cryptopulse-api = "cryptopulse.api:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+cryptopulse = ["migrations/*.sql"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

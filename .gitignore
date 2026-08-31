@@ -25,6 +25,7 @@ data/raw/
 data/private/
 models/
 artifacts/
+var/
 
 # Notebook and editor state
 .ipynb_checkpoints/

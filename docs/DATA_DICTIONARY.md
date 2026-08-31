@@ -90,3 +90,9 @@ Each observation joins one evidence-bearing hourly index to a reference candle a
 later candle used for outcomes. It stores signal and outcome availability timestamps, sentiment,
 coverage, forward return, future volume change, future range volatility, prior-candle return, and
 the chronological development/test assignment.
+
+## Operational pipeline run
+
+The local operational database stores run ID, start and finish timestamps, status, current stage,
+bounded failure text, report root, and application version. A separate lock table prevents
+overlapping runs; applied SQL migration versions are recorded independently.

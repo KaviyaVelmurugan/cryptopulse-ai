@@ -147,11 +147,30 @@ python -m cryptopulse.research
 
 See the [market-impact methodology and safeguards](docs/MARKET_IMPACT_RESEARCH.md).
 
+## Backend and repeatable operations
+
+Phase 11 provides one complete pipeline command, a migrated SQLite operational database, run
+history, overlap protection, freshness checks, an optional FastAPI service, and a local scheduler.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.operations
+```
+
+To run the read-only development API:
+
+```powershell
+python -m pip install -e ".[api]"
+python -m cryptopulse.api
+```
+
+See the [backend and operations guide](docs/BACKEND_AND_OPERATIONS.md).
+
 ## Current status
 
-**Phase 10 - Chronological market-impact research: complete**
+**Phase 11 - Backend, database, and scheduling foundation: complete**
 
-Implementation continues in Phase 11 with the backend, database, and scheduling foundation.
+Implementation continues in Phase 12 with the interactive web dashboard.
 
 ## License
 

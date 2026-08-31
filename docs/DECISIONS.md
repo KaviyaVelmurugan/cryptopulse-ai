@@ -112,3 +112,11 @@ intervals, or multiple-testing correction. Always use chronological development/
 
 **Reason:** Tiny samples can produce extreme correlations by chance. A visible insufficient-sample
 result is more credible than presenting unstable synthetic statistics as market evidence.
+
+## D-018: Separate analytical reports from operational state
+
+**Decision:** Keep reproducible CSV/JSON reports as v1 analytical artefacts and use a migrated
+SQLite database for run history, stage status, failures, and overlap protection.
+
+**Reason:** This provides a zero-service local application foundation without pretending SQLite is
+the final concurrent warehouse. PostgreSQL remains the explicit hosted upgrade path.
