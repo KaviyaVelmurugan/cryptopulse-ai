@@ -70,6 +70,13 @@ Defined in `src/cryptopulse/contracts.py`. It stores target-specific class proba
 predicted label, evidence, model version, preprocessing version, evidence-resolution version,
 and prediction time. The three probabilities must sum to approximately 1.0.
 
+## Event prediction
+
+The event prediction contract stores one primary event, zero or more secondary event labels,
+relative confidence, evidence strength, matched rule terms, exact target evidence, and every
+relevant processing version. `insufficient_evidence` represents an explicit abstention rather
+than a forced event guess.
+
 ## Sentiment aggregate
 
 Defined for the time-series index phase. It separates the sentiment index from evidence count, independent-source count, duplicate-group count, and evidence coverage. This prevents a small amount of confidently classified text from being presented as broad market consensus.

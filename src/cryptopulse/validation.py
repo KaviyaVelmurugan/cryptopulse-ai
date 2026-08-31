@@ -14,6 +14,7 @@ from .contracts import (
     AssetId,
     DatasetSplit,
     EventLabel,
+    EventPrediction,
     HumanAnnotation,
     MarketCandle,
     NewsArticle,
@@ -219,6 +220,29 @@ def validate_prediction(prediction: SentimentPrediction) -> SentimentPrediction:
         raise ValueError("predicted_label must match the highest probability")
     if not prediction.evidence_text.strip():
         raise ValueError("prediction evidence_text is required")
+    if prediction.predicted_at.tzinfo is None or prediction.predicted_at.utcoffset() != UTC.utcoffset(
+        prediction.predicted_at
+    ):
+        raise ValueError("predicted_at must use the UTC timezone")
+    return prediction
+
+
+def validate_event_prediction(prediction: EventPrediction) -> EventPrediction:
+    if not prediction.predicted_labels:
+        raise ValueError("event prediction must contain at least one label")
+    if prediction.primary_event_label != prediction.predicted_labels[0]:
+        raise ValueError("primary_event_label must be the first predicted label")
+    if len(set(prediction.predicted_labels)) != len(prediction.predicted_labels):
+        raise ValueError("predicted event labels must be unique")
+    if not 0 <= prediction.confidence <= 1:
+        raise ValueError("event confidence must be between 0 and 1")
+    if not 0 <= prediction.evidence_strength <= 1:
+        raise ValueError("event evidence_strength must be between 0 and 1")
+    if not prediction.evidence_text.strip():
+        raise ValueError("event evidence_text is required")
+    if prediction.primary_event_label == EventLabel.INSUFFICIENT_EVIDENCE:
+        if prediction.matched_terms or prediction.confidence or prediction.evidence_strength:
+            raise ValueError("insufficient evidence must not carry matches or positive scores")
     if prediction.predicted_at.tzinfo is None or prediction.predicted_at.utcoffset() != UTC.utcoffset(
         prediction.predicted_at
     ):

@@ -85,14 +85,15 @@ broader entity types remain planned improvements.
 
 ## Phase 8 - Event classification
 
-**Status:** Planned
+**Status:** Complete
 
 - Implement the event taxonomy
 - Create an explainable baseline
 - Evaluate event labels and multi-label cases
 - Add event evidence to the dashboard contract
 
-**Exit criterion:** Users can identify what kind of event drove a sentiment change.
+**Exit criterion:** Event predictions expose their target evidence, matched rules, abstentions,
+and primary/secondary labels; real-world model selection awaits a representative labelled set.
 
 ## Phase 9 - Time-series sentiment index
 

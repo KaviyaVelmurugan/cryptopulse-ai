@@ -1,0 +1,471 @@
+{
+  "classifier": {
+    "name": "weighted_event_rules",
+    "version": "1.0.0"
+  },
+  "evaluations": {
+    "all_records": {
+      "confusion_matrix": {
+        "adoption_partnership": {
+          "adoption_partnership": 2,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "exchange_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "insufficient_evidence": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "listing_delisting": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "macroeconomic": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "market_commentary": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 2,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "other": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "protocol_technical": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 1,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "regulation_legal": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 1,
+          "security_incident": 0
+        },
+        "security_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 1
+        }
+      },
+      "macro_f1": 1.0,
+      "multi_label_hit_rate": 1.0,
+      "per_class": {
+        "adoption_partnership": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 2
+        },
+        "market_commentary": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 2
+        },
+        "protocol_technical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "regulation_legal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "security_incident": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        }
+      },
+      "primary_accuracy": 1.0,
+      "sample_count": 7
+    },
+    "deduplicated_records": {
+      "confusion_matrix": {
+        "adoption_partnership": {
+          "adoption_partnership": 1,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "exchange_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "insufficient_evidence": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "listing_delisting": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "macroeconomic": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "market_commentary": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 2,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "other": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "protocol_technical": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 1,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "regulation_legal": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 1,
+          "security_incident": 0
+        },
+        "security_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 1
+        }
+      },
+      "macro_f1": 1.0,
+      "multi_label_hit_rate": 1.0,
+      "per_class": {
+        "adoption_partnership": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "market_commentary": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 2
+        },
+        "protocol_technical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "regulation_legal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "security_incident": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        }
+      },
+      "primary_accuracy": 1.0,
+      "sample_count": 6
+    },
+    "locked_test_split": {
+      "confusion_matrix": {
+        "adoption_partnership": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "exchange_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "insufficient_evidence": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "listing_delisting": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "macroeconomic": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "market_commentary": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "other": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "protocol_technical": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 1,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "regulation_legal": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 0
+        },
+        "security_incident": {
+          "adoption_partnership": 0,
+          "exchange_incident": 0,
+          "insufficient_evidence": 0,
+          "listing_delisting": 0,
+          "macroeconomic": 0,
+          "market_commentary": 0,
+          "other": 0,
+          "protocol_technical": 0,
+          "regulation_legal": 0,
+          "security_incident": 1
+        }
+      },
+      "macro_f1": 1.0,
+      "multi_label_hit_rate": 1.0,
+      "per_class": {
+        "protocol_technical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        },
+        "security_incident": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 1
+        }
+      },
+      "primary_accuracy": 1.0,
+      "sample_count": 2
+    }
+  },
+  "warning": "Synthetic sample metrics validate plumbing only; they are not performance claims."
+}

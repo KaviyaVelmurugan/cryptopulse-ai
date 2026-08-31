@@ -124,6 +124,25 @@ class SentimentPrediction:
 
 
 @dataclass(frozen=True, slots=True)
+class EventPrediction:
+    prediction_id: str
+    article_id: str
+    target_asset_id: AssetId
+    predicted_labels: tuple[EventLabel, ...]
+    primary_event_label: EventLabel
+    confidence: float
+    evidence_strength: float
+    matched_terms: tuple[str, ...]
+    evidence_text: str
+    classifier_name: str
+    classifier_version: str
+    preprocessing_version: str
+    evidence_version: str
+    predicted_at: datetime
+    schema_version: str = SCHEMA_VERSION
+
+
+@dataclass(frozen=True, slots=True)
 class VaderBaselineScore:
     prediction_id: str
     article_id: str

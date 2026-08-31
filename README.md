@@ -108,11 +108,24 @@ python -m cryptopulse.entity_resolution
 
 See the [entity-resolution methodology and limitations](docs/ENTITY_RESOLUTION.md).
 
+## Explainable event classification
+
+Phase 8 classifies target-specific evidence into market-event categories such as regulation,
+security incidents, adoption, protocol changes, and market commentary. It supports secondary
+labels, records matched rules, and abstains when evidence is insufficient.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.events
+```
+
+See the [event-classification methodology](docs/EVENT_CLASSIFICATION.md).
+
 ## Current status
 
-**Phase 7 - Asset-specific sentiment and entity resolution: complete**
+**Phase 8 - Explainable market-event classification: complete**
 
-Implementation continues in Phase 8 with explainable market-event classification.
+Implementation continues in Phase 9 with the hourly and daily time-series sentiment index.
 
 ## License
 

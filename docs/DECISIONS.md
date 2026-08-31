@@ -88,3 +88,11 @@ before sending text to sentiment models. Missing and ambiguous targets must rema
 
 **Reason:** The small v1 asset universe does not justify an opaque NER dependency before a tested,
 deterministic baseline exists. Evidence-first outputs are also easier to audit and demonstrate.
+
+## D-015: Establish an abstaining multi-label event baseline
+
+**Decision:** Begin event classification with versioned weighted rules, retain sufficiently strong
+secondary categories, and return `insufficient_evidence` when no category reaches the threshold.
+
+**Reason:** Event categories can overlap, and forcing a single unsupported answer hides uncertainty.
+An explainable baseline makes later trained-model comparisons meaningful.
