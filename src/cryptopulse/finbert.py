@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Callable, Protocol, Sequence
 
 from .contracts import AssetId, DatasetSplit, HumanAnnotation, SentimentLabel, SentimentPrediction
+from .entity_resolution import ENTITY_RESOLUTION_VERSION, extract_target_evidence
 from .preprocessing import clean_article, deduplicate_articles
 from .sentiment import VaderBaseline, deduplicated_annotations, evaluate
 from .validation import load_csv, parse_annotation_row, parse_news_row
@@ -91,17 +92,26 @@ class FinBertBaseline:
         if predicted_at.tzinfo is None or predicted_at.utcoffset() != UTC.utcoffset(predicted_at):
             raise ValueError("predicted_at must use UTC")
         articles = [request[0] for request in requests]
-        texts = [getattr(article, "model_text") for article in articles]
+        evidence = [
+            extract_target_evidence(article, asset_id)
+            for article, (_, asset_id) in zip(articles, requests, strict=True)
+        ]
+        texts = [item.evidence_text for item in evidence]
         outputs = self.runner(texts)
         if len(outputs) != len(requests):
             raise ValueError("FinBERT returned a different number of predictions than inputs")
         predictions: list[SentimentPrediction] = []
-        for (article, asset_id), raw_scores in zip(requests, outputs, strict=True):
+        for (article, asset_id), target_evidence, raw_scores in zip(
+            requests, evidence, outputs, strict=True
+        ):
             probabilities = _probabilities(raw_scores)
             label = max(LABEL_ORDER, key=probabilities.__getitem__)
             article_id = getattr(article, "article_id")
             preprocessing_version = getattr(article, "preprocessing_version")
-            identity = f"{article_id}|{asset_id.value}|{FINBERT_MODEL_ID}|{FINBERT_REVISION}"
+            identity = (
+                f"{article_id}|{asset_id.value}|{FINBERT_MODEL_ID}|{FINBERT_REVISION}|"
+                f"{ENTITY_RESOLUTION_VERSION}"
+            )
             predictions.append(
                 SentimentPrediction(
                     prediction_id=f"finbert_{hashlib.sha256(identity.encode()).hexdigest()[:20]}",
@@ -111,10 +121,11 @@ class FinBertBaseline:
                     neutral_probability=probabilities[SentimentLabel.NEUTRAL],
                     positive_probability=probabilities[SentimentLabel.POSITIVE],
                     predicted_label=label,
-                    evidence_text=getattr(article, "model_text"),
+                    evidence_text=target_evidence.evidence_text,
                     model_name=FINBERT_MODEL_ID,
                     model_version=FINBERT_REVISION,
                     preprocessing_version=preprocessing_version,
+                    evidence_version=ENTITY_RESOLUTION_VERSION,
                     predicted_at=predicted_at.astimezone(UTC),
                 )
             )
@@ -214,7 +225,7 @@ def generate_comparison_reports(
         writer = csv.DictWriter(stream, fieldnames=(
             "prediction_id", "article_id", "target_asset_id", "negative_probability",
             "neutral_probability", "positive_probability", "predicted_label", "model_name",
-            "model_version", "preprocessing_version", "predicted_at",
+            "model_version", "preprocessing_version", "evidence_version", "predicted_at",
         ))
         writer.writeheader()
         for item in finbert_values:
@@ -229,6 +240,7 @@ def generate_comparison_reports(
                 "model_name": item.model_name,
                 "model_version": item.model_version,
                 "preprocessing_version": item.preprocessing_version,
+                "evidence_version": item.evidence_version,
                 "predicted_at": item.predicted_at.isoformat().replace("+00:00", "Z"),
             })
     return result

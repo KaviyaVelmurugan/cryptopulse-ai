@@ -78,6 +78,7 @@ class ContractTests(unittest.TestCase):
             model_name="test-model",
             model_version="1",
             preprocessing_version="1",
+            evidence_version="1",
             predicted_at=datetime(2026, 1, 6, tzinfo=UTC),
         )
         with self.assertRaisesRegex(ValueError, "highest probability"):

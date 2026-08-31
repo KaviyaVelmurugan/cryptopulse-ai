@@ -73,14 +73,15 @@ selection remains deliberately open until a sufficiently large real, human-label
 
 ## Phase 7 - Asset-specific sentiment and entity resolution
 
-**Status:** Planned
+**Status:** Complete
 
-- Detect crypto assets, organisations, people, and locations
+- Detect Bitcoin and Ethereum aliases; document broader organisation, person, and location NER as a future extension
 - Resolve ambiguous tickers and aliases
 - Assign sentiment to the correct target rather than the entire document
 - Display supporting sentences
 
-**Exit criterion:** Multi-asset articles can express different sentiment toward different targets.
+**Exit criterion:** Multi-asset articles produce separate, traceable evidence for each target;
+broader entity types remain planned improvements.
 
 ## Phase 8 - Event classification
 

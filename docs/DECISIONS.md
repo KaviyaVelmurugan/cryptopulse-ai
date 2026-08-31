@@ -80,3 +80,11 @@
 **Reason:** Revision pinning makes experiments reproducible. Optional dependencies keep the core
 validation pipeline lightweight. The upstream repository does not declare a model licence, so the
 weights are not redistributed and production rights must be confirmed separately.
+
+## D-014: Use explainable entity rules as the first target resolver
+
+**Decision:** Resolve explicit Bitcoin and Ethereum aliases and extract target-bearing clauses
+before sending text to sentiment models. Missing and ambiguous targets must remain visible.
+
+**Reason:** The small v1 asset universe does not justify an opaque NER dependency before a tested,
+deterministic baseline exists. Evidence-first outputs are also easier to audit and demonstrate.

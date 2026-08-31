@@ -22,6 +22,7 @@ from .contracts import (
     SentimentLabel,
     VaderBaselineScore,
 )
+from .entity_resolution import ENTITY_RESOLUTION_VERSION, extract_target_evidence
 from .preprocessing import clean_article, deduplicate_articles
 from .validation import load_csv, parse_annotation_row, parse_news_row
 
@@ -82,7 +83,8 @@ class VaderBaseline:
     ) -> VaderBaselineScore:
         if predicted_at.tzinfo is None or predicted_at.utcoffset() != UTC.utcoffset(predicted_at):
             raise ValueError("predicted_at must use UTC")
-        values = self.analyzer.polarity_scores(article.model_text)
+        target_evidence = extract_target_evidence(article, target_asset_id)
+        values = self.analyzer.polarity_scores(target_evidence.evidence_text)
         required = {"neg", "neu", "pos", "compound"}
         if not required.issubset(values):
             raise ValueError("VADER response is missing required scores")
@@ -90,7 +92,10 @@ class VaderBaseline:
         if abs(sum(proportions) - 1.0) > 0.002:
             raise ValueError("VADER negative, neutral, and positive proportions must sum to 1")
         compound = float(values["compound"])
-        identity = f"{article.article_id}|{target_asset_id.value}|{VADER_MODEL_NAME}|{VADER_MODEL_VERSION}"
+        identity = (
+            f"{article.article_id}|{target_asset_id.value}|{VADER_MODEL_NAME}|"
+            f"{VADER_MODEL_VERSION}|{ENTITY_RESOLUTION_VERSION}"
+        )
         prediction_id = f"vader_{hashlib.sha256(identity.encode('utf-8')).hexdigest()[:20]}"
         return VaderBaselineScore(
             prediction_id=prediction_id,
@@ -101,10 +106,11 @@ class VaderBaseline:
             positive_proportion=proportions[2],
             compound_score=compound,
             predicted_label=label_from_compound(compound),
-            evidence_text=article.model_text,
+            evidence_text=target_evidence.evidence_text,
             model_name=VADER_MODEL_NAME,
             model_version=VADER_MODEL_VERSION,
             preprocessing_version=article.preprocessing_version,
+            evidence_version=ENTITY_RESOLUTION_VERSION,
             predicted_at=predicted_at.astimezone(UTC),
         )
 
@@ -210,7 +216,8 @@ def generate_vader_reports(
         fieldnames = (
             "prediction_id", "article_id", "target_asset_id", "negative_proportion",
             "neutral_proportion", "positive_proportion", "compound_score", "predicted_label",
-            "model_name", "model_version", "preprocessing_version", "predicted_at",
+            "model_name", "model_version", "preprocessing_version", "evidence_version",
+            "predicted_at",
         )
         writer = csv.DictWriter(stream, fieldnames=fieldnames)
         writer.writeheader()
@@ -228,6 +235,7 @@ def generate_vader_reports(
                     "model_name": prediction.model_name,
                     "model_version": prediction.model_version,
                     "preprocessing_version": prediction.preprocessing_version,
+                    "evidence_version": prediction.evidence_version,
                     "predicted_at": prediction.predicted_at.isoformat().replace("+00:00", "Z"),
                 }
             )
@@ -277,7 +285,7 @@ def generate_vader_reports(
                     "compound_score": f"{prediction.compound_score:.4f}",
                     "event_label": annotation.event_label.value,
                     "evidence_text": annotation.evidence_text,
-                    "model_text": cleaned_by_id[prediction.article_id].model_text,
+                    "model_text": prediction.evidence_text,
                     "error_type": "target_context_or_lexicon_mismatch",
                 }
             )

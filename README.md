@@ -95,11 +95,24 @@ python -m cryptopulse.finbert
 
 See the [FinBERT comparison methodology and licence boundary](docs/FINBERT_COMPARISON.md).
 
+## Asset-specific evidence
+
+Phase 7 resolves explicit Bitcoin and Ethereum aliases, separates contrastive multi-asset clauses,
+and supplies target-specific evidence to both sentiment models. Missing and ambiguous targets are
+reported rather than hidden.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.entity_resolution
+```
+
+See the [entity-resolution methodology and limitations](docs/ENTITY_RESOLUTION.md).
+
 ## Current status
 
-**Phase 6 - Financial-language model comparison: complete**
+**Phase 7 - Asset-specific sentiment and entity resolution: complete**
 
-Implementation continues in Phase 7 with asset-specific sentiment and entity resolution.
+Implementation continues in Phase 8 with explainable market-event classification.
 
 ## License
 

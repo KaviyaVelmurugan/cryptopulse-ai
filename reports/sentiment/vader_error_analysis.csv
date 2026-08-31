@@ -1,3 +1,3 @@
 article_id,target_asset_id,actual_label,predicted_label,compound_score,event_label,evidence_text,model_text,error_type
-news_004,bitcoin,neutral,positive,0.1779,regulation_legal,announced a hearing covering custody rules,Committee schedules hearing on digital-asset custody. A fictional committee announced a hearing covering custody rules for Bitcoin and other digital assets.,target_context_or_lexicon_mismatch
-news_006,ethereum,negative,neutral,-0.0258,market_commentary,Ethereum liquidity weakened,Research note compares Bitcoin and Ethereum liquidity. A fictional market note found stable Bitcoin liquidity while Ethereum liquidity weakened during the observed hour.,target_context_or_lexicon_mismatch
+news_004,bitcoin,neutral,positive,0.1779,regulation_legal,announced a hearing covering custody rules,A fictional committee announced a hearing covering custody rules for Bitcoin and other digital assets,target_context_or_lexicon_mismatch
+news_006,bitcoin,neutral,positive,0.2960,market_commentary,stable Bitcoin liquidity,Research note compares Bitcoin and Ethereum liquidity. A fictional market note found stable Bitcoin liquidity,target_context_or_lexicon_mismatch

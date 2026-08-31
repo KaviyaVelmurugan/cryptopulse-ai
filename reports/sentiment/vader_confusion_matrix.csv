@@ -1,9 +1,9 @@
 evaluation,actual_label,negative,neutral,positive
-all_records,negative,1,1,0
-all_records,neutral,0,1,1
+all_records,negative,2,0,0
+all_records,neutral,0,0,2
 all_records,positive,0,0,3
-deduplicated_records,negative,1,1,0
-deduplicated_records,neutral,0,1,1
+deduplicated_records,negative,2,0,0
+deduplicated_records,neutral,0,0,2
 deduplicated_records,positive,0,0,2
 locked_test_split,negative,1,0,0
 locked_test_split,neutral,0,0,0

@@ -1,0 +1,8 @@
+article_id,target_asset_id,resolution_status,mention_count,aliases,evidence_segment_count,evidence_text,quality_flags,resolution_version
+news_001,bitcoin,resolved,2,bitcoin,2,Payment network expands Bitcoin settlement pilot. A fictional payment provider reported a successful Bitcoin settlement pilot with three regional merchants,,1.0.0
+news_002,bitcoin,resolved,2,BTC|bitcoin,2,Merchant pilot reports successful BTC settlements. A fictional syndicated report described the same merchant settlement pilot for Bitcoin,,1.0.0
+news_003,ethereum,resolved,2,ethereum,2,Test network exploit delays Ethereum upgrade. A fictional security incident caused developers to delay an Ethereum test-network upgrade,,1.0.0
+news_004,bitcoin,resolved,1,bitcoin,1,A fictional committee announced a hearing covering custody rules for Bitcoin and other digital assets,,1.0.0
+news_005,ethereum,resolved,2,ethereum,2,Ethereum client update reduces finality delays. A fictional client release improved Ethereum test performance and reduced observed finality delays,,1.0.0
+news_006,bitcoin,resolved,2,bitcoin,2,Research note compares Bitcoin and Ethereum liquidity. A fictional market note found stable Bitcoin liquidity,multi_asset_article,1.0.0
+news_006,ethereum,resolved,2,ethereum,2,Research note compares Bitcoin and Ethereum liquidity. Ethereum liquidity weakened during the observed hour,multi_asset_article,1.0.0

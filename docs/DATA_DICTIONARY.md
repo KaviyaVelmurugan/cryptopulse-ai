@@ -66,7 +66,9 @@ An annotation target must appear in the referenced article's `asset_ids`.
 
 ## Sentiment prediction
 
-Defined in `src/cryptopulse/contracts.py` for later phases. It stores target-specific class probabilities, predicted label, evidence, model version, preprocessing version, and prediction time. The three probabilities must sum to approximately 1.0 when implemented.
+Defined in `src/cryptopulse/contracts.py`. It stores target-specific class probabilities,
+predicted label, evidence, model version, preprocessing version, evidence-resolution version,
+and prediction time. The three probabilities must sum to approximately 1.0.
 
 ## Sentiment aggregate
 

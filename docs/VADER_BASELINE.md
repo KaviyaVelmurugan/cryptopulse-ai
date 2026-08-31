@@ -14,7 +14,9 @@ The compound score ranges from -1 to +1. VADER's negative, neutral, and positive
 
 ## Target handling
 
-Phase 5 produces one prediction record for each article/target pair. However, VADER still scores the complete cleaned article text. A multi-asset article can therefore receive the same score for different targets even when its target-specific meaning differs. Phase 7 will address this using target evidence and entity resolution.
+Phase 7 supplies VADER with target-specific sentences and contrastive clauses. A multi-asset
+article therefore receives separate evidence inputs for Bitcoin and Ethereum. Missing or ambiguous
+targets are explicitly flagged by the entity resolver rather than silently treated as resolved.
 
 ## Evaluation views
 
@@ -31,7 +33,7 @@ Deduplicated results are essential because syndicated stories must not multiply 
 - The lexicon is not trained specifically for finance or cryptocurrency.
 - Neutral journalistic wording can hide financially important direction.
 - Asset tickers, protocol terminology, and event context may be misunderstood.
-- Document-level scoring cannot reliably separate targets.
+- Rule-based evidence extraction can miss indirect references and cross-sentence context.
 - Standard thresholds were not calibrated on CryptoPulse data.
 - The synthetic evaluation sample is far too small for performance claims.
 

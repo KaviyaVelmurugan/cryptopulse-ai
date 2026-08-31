@@ -19,6 +19,7 @@ ml = ["transformers>=4.44,<6", "torch>=2.2,<3"]
 [project.scripts]
 cryptopulse-validate = "cryptopulse.validation:main"
 cryptopulse-finbert = "cryptopulse.finbert:main"
+cryptopulse-entities = "cryptopulse.entity_resolution:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

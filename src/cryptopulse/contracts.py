@@ -118,6 +118,7 @@ class SentimentPrediction:
     model_name: str
     model_version: str
     preprocessing_version: str
+    evidence_version: str
     predicted_at: datetime
     schema_version: str = SCHEMA_VERSION
 
@@ -136,6 +137,7 @@ class VaderBaselineScore:
     model_name: str
     model_version: str
     preprocessing_version: str
+    evidence_version: str
     predicted_at: datetime
     schema_version: str = SCHEMA_VERSION
 
