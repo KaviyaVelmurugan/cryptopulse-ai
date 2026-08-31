@@ -21,6 +21,7 @@ cryptopulse-validate = "cryptopulse.validation:main"
 cryptopulse-finbert = "cryptopulse.finbert:main"
 cryptopulse-entities = "cryptopulse.entity_resolution:main"
 cryptopulse-events = "cryptopulse.events:main"
+cryptopulse-index = "cryptopulse.indexing:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

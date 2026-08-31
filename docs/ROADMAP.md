@@ -97,14 +97,15 @@ and primary/secondary labels; real-world model selection awaits a representative
 
 ## Phase 9 - Time-series sentiment index
 
-**Status:** Planned
+**Status:** Complete
 
 - Define hourly and daily aggregation
 - Incorporate recency, confidence, source independence, and duplicate groups
 - Separate confidence from evidence coverage
 - Add sensitivity tests for weighting choices
 
-**Exit criterion:** Every index value is reproducible and traceable to source observations.
+**Exit criterion:** Every index value is reproducible, linked to source contributions, accompanied
+by coverage, and tested under alternative weighting assumptions.
 
 ## Phase 10 - Market-impact research
 

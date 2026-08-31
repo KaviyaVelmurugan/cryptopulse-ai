@@ -121,11 +121,24 @@ python -m cryptopulse.events
 
 See the [event-classification methodology](docs/EVENT_CLASSIFICATION.md).
 
+## Hourly and daily sentiment index
+
+Phase 9 aggregates target-specific evidence using recency, confidence, duplicate-group, and
+source-independence weights. Direction and evidence coverage remain separate, and every index
+point can be reconstructed from its contribution report.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.indexing
+```
+
+See the [sentiment-index methodology and limitations](docs/SENTIMENT_INDEX.md).
+
 ## Current status
 
-**Phase 8 - Explainable market-event classification: complete**
+**Phase 9 - Hourly and daily sentiment index: complete**
 
-Implementation continues in Phase 9 with the hourly and daily time-series sentiment index.
+Implementation continues in Phase 10 with chronological market-impact research.
 
 ## License
 

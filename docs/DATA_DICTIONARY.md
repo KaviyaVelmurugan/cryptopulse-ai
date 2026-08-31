@@ -79,4 +79,7 @@ than a forced event guess.
 
 ## Sentiment aggregate
 
-Defined for the time-series index phase. It separates the sentiment index from evidence count, independent-source count, duplicate-group count, and evidence coverage. This prevents a small amount of confidently classified text from being presented as broad market consensus.
+The hourly/daily aggregate separates the sentiment index from evidence count, independent-source
+count, duplicate-group count, and evidence coverage. Every aggregate has a deterministic identifier,
+window boundaries, calculation timestamp, and aggregation version. Article-level weight lineage is
+stored separately in the index contribution report.

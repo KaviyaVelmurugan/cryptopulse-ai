@@ -1,0 +1,19 @@
+{
+  "aggregation_version": "1.0.0",
+  "confidence_proxy": "max(abs(VADER compound), 0.10); not a calibrated probability",
+  "coverage": "min(unique duplicate groups / target groups, 1)",
+  "daily": {
+    "coverage_target_groups": 5,
+    "half_life_hours": 12
+  },
+  "event_classifier_version": "1.0.0",
+  "hourly": {
+    "coverage_target_groups": 3,
+    "half_life_hours": 1
+  },
+  "sentiment_model": {
+    "name": "vaderSentiment",
+    "version": "3.3.2"
+  },
+  "warning": "Synthetic evidence validates aggregation only; this is not a trading signal."
+}

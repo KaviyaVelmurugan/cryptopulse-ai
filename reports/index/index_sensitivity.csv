@@ -1,0 +1,9 @@
+asset_id,scenario,half_life_hours,use_confidence,use_recency,sentiment_index
+bitcoin,default,12.0,True,True,0.440208
+bitcoin,short_half_life,3.0,True,True,0.396214
+bitcoin,no_confidence,12.0,False,True,0.35077
+bitcoin,no_recency,12.0,True,False,0.45492
+ethereum,default,12.0,True,True,0.127932
+ethereum,short_half_life,3.0,True,True,0.111795
+ethereum,no_confidence,12.0,False,True,0.026218
+ethereum,no_recency,12.0,True,False,0.132162

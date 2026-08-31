@@ -96,3 +96,11 @@ secondary categories, and return `insufficient_evidence` when no category reache
 
 **Reason:** Event categories can overlap, and forcing a single unsupported answer hides uncertainty.
 An explainable baseline makes later trained-model comparisons meaningful.
+
+## D-016: Keep sentiment direction separate from evidence coverage
+
+**Decision:** Publish a bounded weighted sentiment index alongside raw evidence, independent-source,
+duplicate-group, and coverage values. Persist every article-level contribution and sensitivity case.
+
+**Reason:** A strong sentiment value based on one story is not equivalent to broad independent
+evidence. Visible weighting lineage prevents an aggregate from becoming an unexplained score.
