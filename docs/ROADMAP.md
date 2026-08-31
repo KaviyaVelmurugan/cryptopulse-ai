@@ -133,10 +133,10 @@ prevents overlap, exposes read-only API contracts, and reports freshness separat
 
 ## Phase 12 - Web dashboard
 
-**Status:** Planned
+**Status:** Complete
 
 - Build the Next.js and TypeScript interface
-- Add sentiment/price timelines, event drivers, source evidence, and model comparison
+- Add sentiment/coverage timelines, event drivers, source evidence, and research sufficiency
 - Add accessible filters and responsive layouts
 - Add methodology and data-freshness views
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 from .service import DashboardService
@@ -11,6 +12,7 @@ from .service import DashboardService
 def create_app(project_root: Path | None = None, database_path: Path | None = None):
     try:
         from fastapi import FastAPI, HTTPException, Query
+        from fastapi.middleware.cors import CORSMiddleware
     except ImportError as error:
         raise RuntimeError(
             "API dependencies are not installed. Run: python -m pip install -e .[api]"
@@ -21,6 +23,20 @@ def create_app(project_root: Path | None = None, database_path: Path | None = No
         title="CryptoPulse AI API",
         version="1.0.0",
         description="Read-only explainable crypto market-intelligence API",
+    )
+    allowed_origins = [
+        origin.strip()
+        for origin in os.getenv(
+            "CRYPTOPULSE_ALLOWED_ORIGINS",
+            "http://127.0.0.1:3000,http://localhost:3000",
+        ).split(",")
+        if origin.strip()
+    ]
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=allowed_origins,
+        allow_methods=["GET"],
+        allow_headers=["*"],
     )
 
     @app.get("/health")

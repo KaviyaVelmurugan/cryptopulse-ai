@@ -120,3 +120,13 @@ SQLite database for run history, stage status, failures, and overlap protection.
 
 **Reason:** This provides a zero-service local application foundation without pretending SQLite is
 the final concurrent warehouse. PostgreSQL remains the explicit hosted upgrade path.
+
+## D-019: Make evidence and data state visible in the dashboard
+
+**Decision:** Display sentiment direction, evidence coverage, supporting event text, data
+freshness, and research limitations as separate interface elements. Run in an explicitly labelled
+synthetic-demo mode unless a backend URL is configured.
+
+**Reason:** A polished interface must not make sparse or synthetic evidence appear production-ready.
+Separating these concepts lets a reviewer inspect why a score exists and understand what it cannot
+prove.

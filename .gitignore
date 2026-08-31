@@ -9,6 +9,7 @@ venv/
 
 # JavaScript
 node_modules/
+.npm-cache/
 .next/
 dist/
 coverage/

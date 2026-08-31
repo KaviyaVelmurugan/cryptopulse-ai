@@ -166,11 +166,25 @@ python -m cryptopulse.api
 
 See the [backend and operations guide](docs/BACKEND_AND_OPERATIONS.md).
 
+## Interactive research dashboard
+
+Phase 12 adds a responsive Next.js and TypeScript interface for investigating Bitcoin and
+Ethereum sentiment, evidence coverage, event drivers, and the current research boundary. It
+clearly labels synthetic demo data and does not present the interface as a trading product.
+
+```powershell
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`. The dashboard uses its committed synthetic demonstration data by
+default. To connect the Phase 11 API, follow the [web dashboard guide](docs/WEB_DASHBOARD.md).
+
 ## Current status
 
-**Phase 11 - Backend, database, and scheduling foundation: complete**
+**Phase 12 - Interactive web dashboard: complete**
 
-Implementation continues in Phase 12 with the interactive web dashboard.
+Implementation continues in Phase 13 with downloadable reports and informational alerts.
 
 ## License
 
