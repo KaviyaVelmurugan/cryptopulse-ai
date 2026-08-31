@@ -9,7 +9,8 @@ in a time window. It is not a forecast, price target, trading instruction, or ca
 ## Calculation
 
 For each article-target pair, the v1 index uses the VADER compound score as its directional
-sentiment value. The article weight is:
+sentiment value. An article enters a window only when its processing timestamp is no later than
+the window end. The article weight is:
 
 `confidence proxy × recency × duplicate weight × source weight`
 

@@ -28,6 +28,7 @@ def evidence(
         article_id,
         AssetId.BITCOIN,
         START + timedelta(minutes=minutes),
+        START + timedelta(minutes=minutes),
         source,
         duplicate_group,
         score,
@@ -51,6 +52,19 @@ class WindowTests(unittest.TestCase):
         self.assertEqual(result.aggregate.evidence_count, 0)
         self.assertEqual(result.aggregate.evidence_coverage, 0.0)
         self.assertIsNone(result.leading_event)
+
+    def test_article_processed_after_window_is_not_used(self) -> None:
+        item = evidence("late", 0.8, minutes=30, source="wire", duplicate_group="dup_1")
+        item = IndexEvidence(
+            item.article_id, item.asset_id, item.published_at, END + timedelta(minutes=1),
+            item.source_name, item.duplicate_group_id, item.sentiment_score,
+            item.confidence_weight, item.primary_event,
+        )
+        result = aggregate_window(
+            [item], AssetId.BITCOIN, START, END, calculated_at=CALCULATED,
+            half_life=timedelta(hours=1), coverage_target=3,
+        )
+        self.assertEqual(result.aggregate.evidence_count, 0)
 
     def test_duplicate_articles_share_one_group_weight(self) -> None:
         rows = [

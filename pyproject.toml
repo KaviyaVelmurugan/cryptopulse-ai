@@ -22,6 +22,7 @@ cryptopulse-finbert = "cryptopulse.finbert:main"
 cryptopulse-entities = "cryptopulse.entity_resolution:main"
 cryptopulse-events = "cryptopulse.events:main"
 cryptopulse-index = "cryptopulse.indexing:main"
+cryptopulse-research = "cryptopulse.research:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

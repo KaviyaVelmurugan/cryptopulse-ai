@@ -1,5 +1,5 @@
 {
-  "aggregation_version": "1.0.0",
+  "aggregation_version": "1.1.0",
   "confidence_proxy": "max(abs(VADER compound), 0.10); not a calibrated probability",
   "coverage": "min(unique duplicate groups / target groups, 1)",
   "daily": {

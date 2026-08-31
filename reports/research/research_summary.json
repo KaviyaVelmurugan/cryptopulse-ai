@@ -1,0 +1,32 @@
+{
+  "benjamini_hochberg_q_values": {},
+  "correlations": {
+    "forward_return": {
+      "bootstrap_95_percent_ci": null,
+      "pearson": -0.984405,
+      "spearman": -1.0
+    },
+    "future_range_volatility": {
+      "bootstrap_95_percent_ci": null,
+      "pearson": -0.660227,
+      "spearman": -0.5
+    },
+    "future_volume_change": {
+      "bootstrap_95_percent_ci": null,
+      "pearson": 0.553821,
+      "spearman": 0.5
+    }
+  },
+  "correlations_are_descriptive_only": true,
+  "development_count": 2,
+  "inference_status": "not_run_requires_at_least_30_observations",
+  "raw_permutation_p_values": {},
+  "sample_count": 3,
+  "test_count": 1,
+  "test_direction_accuracy": {
+    "prior_return_persistence": null,
+    "sentiment_sign": null,
+    "status": "not_reported_requires_at_least_10_test_observations"
+  },
+  "warning": "Association is not causation, and these results are not trading advice."
+}

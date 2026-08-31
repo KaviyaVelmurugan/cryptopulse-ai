@@ -19,7 +19,7 @@ from .sentiment import VADER_MODEL_VERSION, VaderBaseline
 from .validation import load_csv, parse_annotation_row, parse_news_row, validate_aggregate
 
 
-AGGREGATION_VERSION = "1.0.0"
+AGGREGATION_VERSION = "1.1.0"
 MINIMUM_CONFIDENCE_WEIGHT = 0.10
 
 
@@ -28,6 +28,7 @@ class IndexEvidence:
     article_id: str
     asset_id: AssetId
     published_at: datetime
+    available_at: datetime
     source_name: str
     duplicate_group_id: str
     sentiment_score: float
@@ -93,7 +94,9 @@ def aggregate_window(
         raise ValueError("half_life and coverage_target must be positive")
     rows = [
         item for item in evidence
-        if item.asset_id == asset_id and window_start <= item.published_at < window_end
+        if item.asset_id == asset_id
+        and window_start <= item.published_at < window_end
+        and item.available_at <= window_end
     ]
     duplicate_counts: dict[str, int] = {}
     source_counts: dict[str, int] = {}
@@ -176,6 +179,7 @@ def build_index_evidence(
                 article.article_id,
                 asset_id,
                 article.published_at,
+                article.processed_at,
                 article.source_name,
                 dedup.group_by_article_id[article.article_id],
                 sentiment.compound_score,

@@ -134,11 +134,24 @@ python -m cryptopulse.indexing
 
 See the [sentiment-index methodology and limitations](docs/SENTIMENT_INDEX.md).
 
+## Chronological market-impact research
+
+Phase 10 aligns completed sentiment windows with strictly later returns, volume changes, and
+range volatility. It uses chronological splits, compares simple direction baselines, and blocks
+inferential claims when fewer than 30 observations are available.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.research
+```
+
+See the [market-impact methodology and safeguards](docs/MARKET_IMPACT_RESEARCH.md).
+
 ## Current status
 
-**Phase 9 - Hourly and daily sentiment index: complete**
+**Phase 10 - Chronological market-impact research: complete**
 
-Implementation continues in Phase 10 with chronological market-impact research.
+Implementation continues in Phase 11 with the backend, database, and scheduling foundation.
 
 ## License
 

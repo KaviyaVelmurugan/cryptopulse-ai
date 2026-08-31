@@ -109,14 +109,15 @@ by coverage, and tested under alternative weighting assumptions.
 
 ## Phase 10 - Market-impact research
 
-**Status:** Planned
+**Status:** Complete
 
 - Align signals with later returns, volume, and volatility
 - Add simple financial baselines
 - Use chronological and walk-forward evaluation
 - Measure uncertainty and guard against multiple-testing claims
 
-**Exit criterion:** Research results are leakage-free and clearly separate association from causation.
+**Exit criterion:** Signal/outcome alignment is point-in-time and auditable, evaluation is
+chronological, and insufficient samples cannot produce inferential or causal claims.
 
 ## Phase 11 - Backend, database, and scheduling
 

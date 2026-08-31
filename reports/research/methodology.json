@@ -1,0 +1,13 @@
+{
+  "aggregation_version": "1.1.0",
+  "entry_reference": "close of candle ending at signal_window_end; descriptive, not executable",
+  "forward_return": "next hourly close / base hourly close - 1",
+  "minimum_direction_test_sample": 10,
+  "minimum_inference_sample": 30,
+  "multiple_testing": "permutation p-values with Benjamini-Hochberg correction when eligible",
+  "range_volatility": "(next high - next low) / next open",
+  "research_version": "1.0.0",
+  "signal": "hourly sentiment index with evidence_count > 0",
+  "split": "first 70% development, remaining 30% test, ordered by signal time",
+  "volume_change": "next hourly volume / base hourly volume - 1"
+}

@@ -83,3 +83,10 @@ The hourly/daily aggregate separates the sentiment index from evidence count, in
 count, duplicate-group count, and evidence coverage. Every aggregate has a deterministic identifier,
 window boundaries, calculation timestamp, and aggregation version. Article-level weight lineage is
 stored separately in the index contribution report.
+
+## Market-research observation
+
+Each observation joins one evidence-bearing hourly index to a reference candle and the strictly
+later candle used for outcomes. It stores signal and outcome availability timestamps, sentiment,
+coverage, forward return, future volume change, future range volatility, prior-candle return, and
+the chronological development/test assignment.

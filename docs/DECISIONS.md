@@ -104,3 +104,11 @@ duplicate-group, and coverage values. Persist every article-level contribution a
 
 **Reason:** A strong sentiment value based on one story is not equivalent to broad independent
 evidence. Visible weighting lineage prevents an aggregate from becoming an unexplained score.
+
+## D-017: Suppress inference when market research is underpowered
+
+**Decision:** Require at least 30 aligned observations before permutation tests, bootstrap
+intervals, or multiple-testing correction. Always use chronological development/test ordering.
+
+**Reason:** Tiny samples can produce extreme correlations by chance. A visible insufficient-sample
+result is more credible than presenting unstable synthetic statistics as market evidence.
