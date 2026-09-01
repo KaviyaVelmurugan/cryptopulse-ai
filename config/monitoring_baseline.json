@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "scope": "synthetic_pipeline_validation_only",
+  "reference": {
+    "hourly_sentiment_mean": 0.116737,
+    "hourly_coverage_mean": 0.2
+  },
+  "thresholds": {
+    "maximum_warning_rate": 0.1,
+    "maximum_duplicate_rate": 0.5,
+    "maximum_sentiment_mean_shift": 0.25,
+    "maximum_coverage_mean_shift": 0.25,
+    "maximum_freshness_hours": 26
+  }
+}

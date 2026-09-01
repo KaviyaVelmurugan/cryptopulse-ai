@@ -188,11 +188,26 @@ describe observed evidence conditions; they are not price forecasts or trading r
 
 See the [reports and alerts guide](docs/REPORTS_AND_ALERTS.md).
 
+## MLOps, quality, and security
+
+Phase 14 adds versioned model/component metadata, data-quality and drift monitoring, production
+configuration checks, non-root Docker containers, GitHub CI, dependency auditing, secret scanning,
+and an explicit security/governance review.
+
+```powershell
+$env:PYTHONPATH="src"
+python -m cryptopulse.monitoring --project-root .
+docker compose up --build
+```
+
+Docker is optional and does not host the application publicly. See the
+[MLOps and operations guide](docs/MLOPS_SECURITY.md) and [security policy](SECURITY.md).
+
 ## Current status
 
-**Phase 13 - Reports and informational alerts: complete**
+**Phase 14 - MLOps, quality, and security: complete**
 
-Implementation continues in Phase 14 with MLOps, quality, security, and deployment controls.
+Only Phase 15 remains: final release, architecture, publication, and interview materials.
 
 ## License
 

@@ -65,6 +65,10 @@ def create_app(project_root: Path | None = None, database_path: Path | None = No
     def research_summary():
         return service.research_summary()
 
+    @app.get("/api/v1/monitoring")
+    def monitoring_summary():
+        return service.monitoring_summary()
+
     @app.get("/api/v1/runs")
     def recent_runs(limit: int = Query(default=10, ge=1, le=100)):
         return service.recent_runs(limit)

@@ -1,0 +1,11 @@
+.git
+.github
+.next
+.npm-cache
+.venv
+node_modules
+var
+tmp
+*.log
+.env*
+!.env.example

@@ -10,7 +10,6 @@ from cryptopulse.contracts import AssetId, CleanedNewsArticle, SentimentLabel
 from cryptopulse.finbert import (
     FINBERT_REVISION,
     FinBertBaseline,
-    calibration,
     generate_comparison_reports,
 )
 

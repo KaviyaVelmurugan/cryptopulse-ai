@@ -12,6 +12,7 @@ from typing import Callable
 from .entity_resolution import generate_entity_report
 from .events import generate_event_reports
 from .indexing import generate_index_reports
+from .monitoring import generate_monitoring_report
 from .preprocessing import generate_quality_reports
 from .research import generate_research_reports
 from .sentiment import generate_vader_reports
@@ -71,6 +72,7 @@ def run_pipeline(
                 data / "news_articles.csv", data / "annotations.csv",
                 data / "market_candles.csv", reports / "research",
             )),
+            ("monitoring", lambda: generate_monitoring_report(project_root, generated_at=clock())),
         )
         for stage, action in stages:
             store.update_stage(run_id, stage)

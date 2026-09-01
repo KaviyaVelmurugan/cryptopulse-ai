@@ -1,0 +1,21 @@
+{
+  "registry_version": "1.0.0",
+  "active_sentiment_baseline": {
+    "name": "vaderSentiment",
+    "dependency_constraint": ">=3.3.2,<4",
+    "role": "transparent_baseline"
+  },
+  "optional_comparison_model": {
+    "name": "ProsusAI/finbert",
+    "revision": "4556d13015211d73dccd3fdd39d39232506f3e43",
+    "upstream_license": "not_declared_by_upstream",
+    "production_approval": "blocked_pending_license_and_real_data_review"
+  },
+  "components": {
+    "entity_resolution": "1.0.0",
+    "event_classifier": "1.0.0",
+    "sentiment_aggregation": "1.1.0",
+    "monitoring_baseline": "1.0.0"
+  },
+  "warning": "Synthetic evaluation results validate code paths and are not model-performance claims."
+}

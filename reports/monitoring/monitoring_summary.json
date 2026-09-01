@@ -1,0 +1,67 @@
+{
+  "baseline_scope": "synthetic_pipeline_validation_only",
+  "baseline_version": "1.0.0",
+  "checks": {
+    "article_warning_rate": {
+      "limit": 0.1,
+      "status": "ok",
+      "value": 0.0
+    },
+    "coverage_mean_drift": {
+      "limit": 0.25,
+      "status": "ok",
+      "value": 2.0000000000575113e-07
+    },
+    "duplicate_rate": {
+      "limit": 0.5,
+      "status": "ok",
+      "value": 0.3333333333333333
+    },
+    "freshness": {
+      "limit_hours": 26,
+      "status": "ok",
+      "value_hours": 14.566666666666666
+    },
+    "sentiment_mean_drift": {
+      "limit": 0.25,
+      "status": "ok",
+      "value": 1.0000000000287557e-07
+    }
+  },
+  "environment": {
+    "errors": [],
+    "mode": "development",
+    "status": "valid",
+    "warnings": [
+      "NEWS_API_KEY is absent; live news ingestion is unavailable"
+    ]
+  },
+  "generated_at": "2026-01-07T00:00:00Z",
+  "model_registry": {
+    "active_sentiment_baseline": {
+      "dependency_constraint": ">=3.3.2,<4",
+      "name": "vaderSentiment",
+      "role": "transparent_baseline"
+    },
+    "components": {
+      "entity_resolution": "1.0.0",
+      "event_classifier": "1.0.0",
+      "monitoring_baseline": "1.0.0",
+      "sentiment_aggregation": "1.1.0"
+    },
+    "optional_comparison_model": {
+      "name": "ProsusAI/finbert",
+      "production_approval": "blocked_pending_license_and_real_data_review",
+      "revision": "4556d13015211d73dccd3fdd39d39232506f3e43",
+      "upstream_license": "not_declared_by_upstream"
+    },
+    "registry_version": "1.0.0",
+    "warning": "Synthetic evaluation results validate code paths and are not model-performance claims."
+  },
+  "observations": {
+    "articles": 6,
+    "hourly_index_points": 10
+  },
+  "status": "ok",
+  "warning": "Synthetic baseline validates monitoring mechanics; it is not a production market baseline."
+}

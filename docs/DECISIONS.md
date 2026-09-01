@@ -149,3 +149,28 @@ workflow uses the browser's standards-based print/save function.
 **Reason:** Derived outputs are sufficient for analysis and portfolio review while avoiding
 unnecessary redistribution of provider-controlled content. Browser printing keeps the v1 report
 portable without adding a server-side document service.
+
+## D-022: Monitor distributions without claiming production drift detection
+
+**Decision:** Track article warnings, duplicates, sentiment mean, evidence coverage, and freshness
+against a versioned synthetic reference. Label that reference as pipeline validation only.
+
+**Reason:** The mechanics of monitoring should be testable now, but a meaningful production
+baseline can only be learned from a sufficiently large, representative and approved live dataset.
+
+## D-023: Keep containers non-root and deployment optional
+
+**Decision:** Supply separate API and dashboard images, non-root runtime users, health checks,
+read-only Compose filesystems, and no embedded credentials. Do not automatically publish images.
+
+**Reason:** Reproducibility and safer defaults improve the portfolio project without creating a
+public service or expanding its financial-risk boundary.
+
+## D-024: Block unapproved FinBERT production promotion
+
+**Decision:** Record the exact optional FinBERT revision in a model registry and mark production
+approval blocked until its upstream licence and performance on representative human-labelled data
+are reviewed.
+
+**Reason:** A reproducible model is not automatically legally or statistically suitable for
+production use.

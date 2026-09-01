@@ -78,6 +78,13 @@ class DashboardService:
         with (self.report_root / "research" / "research_summary.json").open(encoding="utf-8") as stream:
             return json.load(stream)
 
+    def monitoring_summary(self) -> dict[str, object]:
+        path = self.report_root / "monitoring" / "monitoring_summary.json"
+        if not path.exists():
+            return {"status": "unavailable", "warning": "Run the pipeline to generate monitoring."}
+        with path.open(encoding="utf-8") as stream:
+            return json.load(stream)
+
     def recent_runs(self, limit: int = 10) -> list[dict[str, object]]:
         return [
             {

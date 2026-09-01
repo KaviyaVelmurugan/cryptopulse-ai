@@ -66,6 +66,7 @@ class ServiceTests(unittest.TestCase):
             self.assertEqual(len(bitcoin_daily), 1)
             self.assertTrue(all(row["asset_id"] == "bitcoin" for row in bitcoin_daily))
             self.assertTrue(all(row["target_asset_id"] == "ethereum" for row in service.events("ethereum")))
+            self.assertEqual(service.monitoring_summary()["baseline_version"], "1.0.0")
             ready = service.readiness(now=datetime(2026, 1, 6, 10, tzinfo=UTC))
             self.assertEqual(ready["status"], "ready")
             stale = service.readiness(now=datetime(2026, 2, 6, tzinfo=UTC))
