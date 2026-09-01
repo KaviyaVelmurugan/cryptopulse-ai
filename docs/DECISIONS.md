@@ -174,3 +174,20 @@ are reviewed.
 
 **Reason:** A reproducible model is not automatically legally or statistically suitable for
 production use.
+
+## D-025: Keep personal publication assets outside the repository
+
+**Decision:** Commit technical release documentation and reusable diagrams to GitHub, but store the
+LinkedIn draft, Medium draft and beginner/interview guide in a separate local deliverables folder.
+
+**Reason:** GitHub should explain and reproduce the software. Personal publishing drafts and the
+downloadable study guide belong to their intended platforms and should remain editable without
+changing the source repository.
+
+## D-026: Release v1.0 only after hosted CI verification
+
+**Decision:** Prepare release notes and a tag checklist but leave the actual GitHub tag and release
+creation to the repository owner after the pushed commit passes GitHub Actions.
+
+**Reason:** A release tag should identify a remotely verified commit. Local success cannot prove
+that GitHub container and security jobs completed on the hosted runner.

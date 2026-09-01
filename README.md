@@ -4,13 +4,23 @@ CryptoPulse AI is an explainable FinTech market-intelligence project for analysi
 
 The project begins with Bitcoin and Ethereum. It is designed as a research and decision-support tool, not a trading bot or source of financial advice.
 
+![CryptoPulse AI dashboard](docs/assets/dashboard-preview.png)
+
+## Architecture
+
+![CryptoPulse AI architecture](docs/assets/architecture.svg)
+
+The system preserves evidence and time lineage from ingestion through dashboard presentation. See
+the [model card](docs/MODEL_CARD.md), [data sheet](docs/DATA_SHEET.md),
+[API reference](docs/API_REFERENCE.md), and [v1.0 release notes](docs/RELEASE_NOTES_V1.0.md).
+
 ## Why this project exists
 
 Crypto sentiment projects often stop at word clouds or positive/negative labels. Those outputs do not show which asset the sentiment concerns, whether duplicate stories distorted the result, when the information became available, or whether sentiment had any measurable relationship with later market behaviour.
 
 CryptoPulse AI will build a reproducible pipeline from source data to an explainable, time-aware sentiment index and market-impact analysis.
 
-## Planned v1.0 capabilities
+## v1.0 capabilities
 
 - Collect permitted Bitcoin and Ethereum news and OHLCV market data
 - Preserve source, publication, retrieval, and processing timestamps
@@ -207,7 +217,8 @@ Docker is optional and does not host the application publicly. See the
 
 **Phase 14 - MLOps, quality, and security: complete**
 
-Only Phase 15 remains: final release, architecture, publication, and interview materials.
+All fifteen planned v1.0 phases are complete. See the [changelog](CHANGELOG.md) and follow the
+owner-controlled release checklist before creating the GitHub `v1.0.0` tag.
 
 ## License
 

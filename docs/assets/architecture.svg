@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">CryptoPulse AI architecture</title>
+  <desc id="desc">Data flows from permitted news and Coinbase candles through validation, evidence analysis, aggregation, research, monitoring, API, and the Next.js dashboard.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#090c14"/><stop offset="1" stop-color="#101827"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#30d5c8"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-opacity=".28"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+    <style>
+      .title{font:700 38px Arial,sans-serif;fill:#eef2ff}.sub{font:400 17px Arial,sans-serif;fill:#94a3b8}.label{font:700 18px Arial,sans-serif;fill:#f8fafc}.detail{font:400 14px Arial,sans-serif;fill:#aab5c7}.tag{font:700 12px Arial,sans-serif;letter-spacing:1.4px;fill:#5eead4}.box{fill:#151d2c;stroke:#2a3548;stroke-width:2;rx:18;filter:url(#shadow)}.line{stroke:#64748b;stroke-width:3;fill:none;marker-end:url(#arrow)}.dashed{stroke:#64748b;stroke-width:2;stroke-dasharray:7 7;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1600" height="920" rx="26" fill="url(#bg)"/>
+  <rect x="70" y="58" width="68" height="68" rx="20" fill="url(#accent)"/><text x="104" y="99" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#071015">CP</text>
+  <text x="165" y="88" class="title">CryptoPulse AI</text><text x="165" y="116" class="sub">Evidence-first cryptocurrency sentiment research architecture</text>
+
+  <text x="72" y="194" class="tag">01 · SOURCES</text>
+  <rect class="box" x="70" y="220" width="250" height="112"/><text x="95" y="258" class="label">Permitted news</text><text x="95" y="286" class="detail">NewsAPI metadata</text><text x="95" y="310" class="detail">Published / retrieved UTC</text>
+  <rect class="box" x="70" y="370" width="250" height="112"/><text x="95" y="408" class="label">Market candles</text><text x="95" y="436" class="detail">Coinbase BTC/USD, ETH/USD</text><text x="95" y="460" class="detail">OHLCV observations</text>
+
+  <text x="390" y="194" class="tag">02 · DATA TRUST</text>
+  <rect class="box" x="388" y="220" width="270" height="112"/><text x="413" y="258" class="label">Validate &amp; preserve</text><text x="413" y="286" class="detail">Versioned contracts</text><text x="413" y="310" class="detail">Point-in-time provenance</text>
+  <rect class="box" x="388" y="370" width="270" height="112"/><text x="413" y="408" class="label">Clean &amp; deduplicate</text><text x="413" y="436" class="detail">Quality flags</text><text x="413" y="460" class="detail">Syndication grouping</text>
+
+  <text x="730" y="194" class="tag">03 · EXPLAINABLE AI</text>
+  <rect class="box" x="728" y="220" width="290" height="112"/><text x="753" y="258" class="label">Target evidence</text><text x="753" y="286" class="detail">Bitcoin / Ethereum resolver</text><text x="753" y="310" class="detail">Supporting clauses retained</text>
+  <rect class="box" x="728" y="370" width="290" height="112"/><text x="753" y="408" class="label">Sentiment &amp; events</text><text x="753" y="436" class="detail">VADER + optional FinBERT</text><text x="753" y="460" class="detail">Explainable event rules</text>
+
+  <text x="1090" y="194" class="tag">04 · RESEARCH</text>
+  <rect class="box" x="1088" y="220" width="310" height="112"/><text x="1113" y="258" class="label">Sentiment index</text><text x="1113" y="286" class="detail">Hourly / daily aggregation</text><text x="1113" y="310" class="detail">Coverage kept separate</text>
+  <rect class="box" x="1088" y="370" width="310" height="112"/><text x="1113" y="408" class="label">Market-impact research</text><text x="1113" y="436" class="detail">Strictly later outcomes</text><text x="1113" y="460" class="detail">Inference withheld if n &lt; 30</text>
+
+  <path class="line" d="M320 276H388"/><path class="line" d="M320 426H388"/><path class="line" d="M658 276H728"/><path class="line" d="M658 426H728"/><path class="line" d="M1018 276H1088"/><path class="line" d="M1018 426H1088"/>
+  <path class="dashed" d="M523 332V370"/><path class="dashed" d="M873 332V370"/><path class="dashed" d="M1243 332V370"/>
+
+  <text x="72" y="566" class="tag">05 · OPERATE &amp; SERVE</text>
+  <rect class="box" x="70" y="594" width="300" height="130"/><text x="95" y="635" class="label">Pipeline operations</text><text x="95" y="665" class="detail">SQLite run history + locks</text><text x="95" y="691" class="detail">Scheduler + structured logs</text>
+  <rect class="box" x="430" y="594" width="300" height="130"/><text x="455" y="635" class="label">MLOps monitoring</text><text x="455" y="665" class="detail">Quality, drift, freshness</text><text x="455" y="691" class="detail">Versioned model registry</text>
+  <rect class="box" x="790" y="594" width="300" height="130"/><text x="815" y="635" class="label">Read-only FastAPI</text><text x="815" y="665" class="detail">Health, data, research</text><text x="815" y="691" class="detail">Monitoring + run endpoints</text>
+  <rect x="1150" y="580" width="380" height="158" rx="22" fill="#111f2c" stroke="url(#accent)" stroke-width="3" filter="url(#shadow)"/><text x="1178" y="625" class="label">Next.js research dashboard</text><text x="1178" y="657" class="detail">Filters · evidence · reports · alerts</text><text x="1178" y="685" class="detail">Synthetic demo or API-connected mode</text><rect x="1178" y="703" width="185" height="5" rx="3" fill="url(#accent)"/>
+  <path class="line" d="M370 659H430"/><path class="line" d="M730 659H790"/><path class="line" d="M1090 659H1150"/>
+  <path class="dashed" d="M1243 482V535H220V594"/><path class="dashed" d="M1243 482V535H580V594"/>
+
+  <rect x="70" y="790" width="1460" height="72" rx="15" fill="#0d1420" stroke="#273246"/><text x="95" y="820" class="tag">RESPONSIBLE BOUNDARY</text><text x="95" y="846" class="detail">Research and decision support only · association is not causation · no exchange credentials · no trade execution · no guaranteed returns</text>
+</svg>

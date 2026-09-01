@@ -166,7 +166,7 @@ prevents overlap, exposes read-only API contracts, and reports freshness separat
 
 ## Phase 15 - Release and publication
 
-**Status:** Planned
+**Status:** Complete
 
 - Add architecture diagram, screenshots, model card, data sheet, and API documentation
 - Tag the v1.0 GitHub release
