@@ -1,6 +1,6 @@
 # Development roadmap
 
-Each phase begins with an explanation of its purpose, technology choices, output, limitations, and interview relevance before implementation.
+Each phase begins with an explanation of its purpose, technology choices, output, and limitations before implementation.
 
 ## Phase 1 - Product definition
 
@@ -170,8 +170,6 @@ prevents overlap, exposes read-only API contracts, and reports freshness separat
 
 - Add architecture diagram, screenshots, model card, data sheet, and API documentation
 - Tag the v1.0 GitHub release
-- Prepare LinkedIn and Medium articles
-- Create a separate downloadable interview guide
 
 **Exit criterion:** The project is understandable, reproducible, and portfolio-ready without unsupported claims.
 

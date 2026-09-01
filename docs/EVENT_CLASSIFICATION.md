@@ -42,8 +42,8 @@ in each evaluation slice, and a complete confusion matrix. Results are produced 
 deduplicated records, and the locked test split.
 
 The current synthetic sample matches the rules closely and therefore produces perfect accuracy.
-This validates integration, not real-world quality. The result must not be used in a résumé,
-article, or interview as a production-performance claim.
+This validates integration, not real-world quality, and must not be presented as
+production-performance evidence.
 
 ## Run
 
@@ -62,10 +62,3 @@ Outputs are written to `reports/events/`.
 - Secondary events do not yet have independent human multi-label annotations.
 - A future model should be compared using a larger chronological, double-reviewed dataset.
 - Rules should remain as an interpretable fallback even after a trained classifier is added.
-
-## Interview explanation
-
-“I separated event type from sentiment because positive or negative alone does not explain market
-context. I built an abstaining, multi-label rule baseline whose matched evidence is visible. I
-evaluate primary accuracy and whether the human event appears anywhere in the predicted label set.
-The synthetic sample proves the pipeline, while a real model decision requires broader annotations.”

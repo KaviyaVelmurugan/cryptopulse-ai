@@ -87,5 +87,3 @@ the same explicit schema-version discipline.
 - Domain data still resides in CSV/JSON reports rather than normalized database tables.
 - Live connector credentials and API secrets remain outside the repository.
 - Production deployment needs TLS, origin controls, request logs, metrics, backups, and security review.
-
-

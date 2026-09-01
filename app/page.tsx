@@ -168,7 +168,7 @@ export default function Dashboard() {
         <div className="section-title"><div><p className="eyebrow">Shareable, traceable outputs</p><h2>Reports and informational alerts</h2></div><p>Export permitted derived values or record a research condition—never a trading instruction.</p></div>
         <div className="output-grid">
           <article className="export-card"><span className="card-number">01</span><h3>Derived data export</h3><p>Download the versioned sentiment index without copyrighted article text.</p><button className="action-button" onClick={downloadCsv}>Download CSV</button></article>
-          <article className="export-card"><span className="card-number">02</span><h3>Research report</h3><p>Open your browser print dialog and choose “Save as PDF” for a concise interview-ready snapshot.</p><button className="action-button secondary" onClick={() => window.print()}>Print / Save PDF</button></article>
+          <article className="export-card"><span className="card-number">02</span><h3>Research report</h3><p>Open your browser print dialog and choose “Save as PDF” for a concise research snapshot.</p><button className="action-button secondary" onClick={() => window.print()}>Print / Save PDF</button></article>
         </div>
         <div className="alert-panel">
           <div className="alert-config"><p className="eyebrow">Local alert rule</p><h3>Choose the evidence conditions</h3><p>Saved only in this browser. No exchange or notification account is connected.</p>
