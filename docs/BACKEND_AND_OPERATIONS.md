@@ -88,10 +88,4 @@ the same explicit schema-version discipline.
 - Live connector credentials and API secrets remain outside the repository.
 - Production deployment needs TLS, origin controls, request logs, metrics, backups, and security review.
 
-## Interview explanation
 
-“I separated analytical artefacts from operational state. A versioned pipeline regenerates reports,
-while SQLite tracks migrations, locks, stage progress and failures. The API layer is read-only and
-framework-independent underneath FastAPI. Health and freshness are separate, and overlapping jobs
-are prevented. PostgreSQL and managed scheduling are clear deployment upgrades rather than being
-pretended inside a local demo.”
